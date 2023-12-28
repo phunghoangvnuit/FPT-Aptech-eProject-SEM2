@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Store</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+      *{
+          padding: 0;
+          margin: 0;
+      }
+
+      .categories{
+          width: 100%;
+          height: 100%;
+          border-style: solid;
+          background-color: aqua;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: 20px;
+      }
+      .left-categories{
+          width: 400px;
+          height: 400px;
+          border-style: solid;
+          background-color: #219150;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          padding: 20px;
+      }
+      .left-categories-top{
+          width: 360px;
+          height: 50px;
+          border-style: solid;
+          background-color: #444444;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+      }
+      .left-categories-bottom{
+          width: 360px;
+          height: 300px;
+          border-style: solid;
+          background-color: #444444;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+      }
+      .left-categories-bottom-box{
+          width: 320px;
+          height: 45px;
+          border-style: solid;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 10px;
+          color: white;
+      }
+
+
+      .right-categories{
+          width: 1000px;
+          height: 1500px;
+          border-style: solid;
+          background-color: #219150;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          padding: 20px;
+      }
+      .right-categories-top{
+          width: 960px;
+          height: 50px;
+          border-style: solid;
+          background-color: #444444;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+      }
+      .right-categories-top-input-filter{
+          width: 150px;
+          height: 30px;
+          border-style: solid;
+          background-color: red;
+      }
+      .right-categories-bottom{
+          width: 960px;
+          height: 1400px;
+          border-style: solid;
+          background-color: #444444;
+          display: grid;
+          grid-template-columns: 220px 220px;
+          row-gap: 10px;
+          column-gap: 10px;
+      }
+      .book{
+          height: 300px;
+          background-color: #666666;
+      }
+
+  </style>
+
+</head>
+<body>
+
+<!-- header section starts -->
+
+<header class="header">
+
+  <div class="header-1">
+
+    <a href="#" class="logo"><i class="fas fa-book"></i> BookStore </a>
+
+    <form action="" class="search-form">
+      <input type="search" name="" placeholder="search here" id="search-box">
+      <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="icons">
+      <div id="search-btn" class="fas fa-search"></div>
+      <a href="#" class="fas fa-heart"></a>
+      <a href="#" class="fas fa-shopping-cart"></a>
+      <div id="login-btn" class="fas fa-user"></div>
+    </div>
+
+  </div>
+
+  <div class="header-2">
+    <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#featured">featured</a>
+      <a href="#arrivals">arrivals</a>
+      <a href="#reviews">reviews</a>
+      <a href="#blogs">blogs</a>
+    </nav>
+  </div>
+
+</header>
+
+<!-- header section ends-->
+
+<!-- bottom navbar -->
+
+<nav class="bottom-navbar">
+  <a href="#home" class="fas fa-home"></a>
+  <a href="#featured" class="fas fa-list"></a>
+  <a href="#arrivals" class="fas fa-tags"></a>
+  <a href="#reviews" class="fas fa-comments"></a>
+  <a href="#blogs" class="fas fa-blog"></a>
+</nav>
+
+<!-- login form -->
+
+<div class="login-form-container">
+
+  <div id="close-login-btn" class="fas fa-times"></div>
+
+  <form action="">
+    <h3>sign in</h3>
+    <span>username</span>
+    <input type="email" name="" class="box" placeholder="enter your email">
+    <span>password</span>
+    <input type="password" name="" class="box" placeholder="enter your password">
+    <div class="checkbox">
+      <input type="checkbox" name="" id="remember-me">
+      <label for="remember-me"> remember me </label>
+    </div>
+    <input type="submit" value="sign in" class="btn">
+    <p>forget password ? <a href="#">click here</a></p>
+    <p>don't have an account ? <a href="#">create one</a></p>
+  </form>
+
+</div>
+
+<!-- body of categories starts -->
+<section class="categories">
+
+  <div class="left-categories">
+    <div class="left-categories-top">
+      <p style="font-size: 30px; color: white;">Categories</p>
+    </div>
+    <div class="left-categories-bottom">
+      <div class="left-categories-bottom-box">Category1</div>
+      <div class="left-categories-bottom-box">Category2</div>
+      <div class="left-categories-bottom-box">Category3</div>
+      <div class="left-categories-bottom-box">Category4</div>
+      <div class="left-categories-bottom-box">Category5</div>
+    </div>
+  </div>
+
+  <div class="right-categories">
+
+    <div class="right-categories-top">
+      <p style="font-size: 30px; color: white;">Filter</p>
+      <div class="right-categories-top-input-filter"></div>
+    </div>
+
+    <div class="right-categories-bottom">
+      <div class="book"></div>
+      <div class="book"></div>
+      <div class="book"></div>
+      <div class="book"></div>
+      <div class="book"></div>
+      <div class="book"></div>
+      <div class="book"></div>
+      <div class="book"></div>
+    </div>
+
+  </div>
+
+</section>
+<!-- body of categories ends -->
+
+<!-- footer section starts -->
+
+<section class="footer">
+
+  <div class="box-container">
+
+    <div class="box">
+      <h3>our locations</h3>
+      <a href="#"><i class="fas fa-map-marker-alt"></i>india</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i>USA</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i>russia</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i>france</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i>japan</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i>africa</a>
+    </div>
+
+    <div class="box">
+      <h3>quick links</h3>
+      <a href="#"><i class="fas fa-arrow-right"></i>home</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>featured</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>arrivals</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>reviews</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>blogs</a>
+    </div>
+
+    <div class="box">
+      <h3>extra links</h3>
+      <a href="#"><i class="fas fa-arrow-right"></i>account info</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>ordered items</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>privacy policy</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>payment method</a>
+      <a href="#"><i class="fas fa-arrow-right"></i>services</a>
+    </div>
+
+    <div class="box">
+      <h3>contact info</h3>
+      <a href="#"><i class="fas fa-phone"></i>(+84) 0338.69.5456</a>
+      <a href="#"><i class="fas fa-phone"></i>(+84) 0987.39.6061</a>
+      <a href="#"><i class="fas envelope"></i>phunghoangvnuit@gmail.com</a>
+      <img src="image/map.png" class="map">
+    </div>
+
+  </div>
+
+  <div class="share">
+    <a href="#" class="fab fa-facebook-f"></a>
+    <a href="#" class="fab fa-twitter"></a>
+    <a href="#" class="fab fa-instagram"></a>
+    <a href="#" class="fab fa-linkedin"></a>
+    <a href="#" class="fab fa-pinterest"></a>
+  </div>
+
+  <div class="credit">created by <span>phunghoang@vnuit</span> | all rights reserved!</div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- loader -->
+
+<div class="loader-container">
+  <img src="image/loader-img.gif">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- custom js file link -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
