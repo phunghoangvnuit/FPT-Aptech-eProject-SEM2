@@ -15,109 +15,50 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-      *{
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      .categories-left{
+          width: 280px;
+          height: auto;
+          border-style: solid;
+          border-width: 1px;
+          border-color: #219150;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          gap: 10px;
+      }
+      .categories-left-top{
+          font-family: 'Poppins', sans-serif;
+          font-size: 30px;
+          font-weight: 500;
+      }
+      .categories-left-top p{
           padding: 0;
           margin: 0;
       }
-
-      .categories{
+      .categories-left-bottom{
           width: 100%;
-          height: 100%;
-          border-style: solid;
-          background-color: aqua;
+          height: auto;
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          align-items: center;
           justify-content: center;
-          gap: 20px;
+          gap: 10px;
       }
-      .left-categories{
-          width: 400px;
-          height: 400px;
+      .categories-left-bottom button{
+          border-width: 1px;
+          border-radius: 2px;
           border-style: solid;
+          border-color: #219150;
+          width: 280px;
+          height: auto;
+          font-size: 16px;
+          text-align: left;
+          padding: 10px;
           background-color: #219150;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          padding: 20px;
+          color: #fff;
       }
-      .left-categories-top{
-          width: 360px;
-          height: 50px;
-          border-style: solid;
-          background-color: #444444;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px;
-      }
-      .left-categories-bottom{
-          width: 360px;
-          height: 300px;
-          border-style: solid;
-          background-color: #444444;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px;
-      }
-      .left-categories-bottom-box{
-          width: 320px;
-          height: 45px;
-          border-style: solid;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 10px;
-          color: white;
-      }
-
-
-      .right-categories{
-          width: 1000px;
-          height: 1500px;
-          border-style: solid;
-          background-color: #219150;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          padding: 20px;
-      }
-      .right-categories-top{
-          width: 960px;
-          height: 50px;
-          border-style: solid;
-          background-color: #444444;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px;
-      }
-      .right-categories-top-input-filter{
-          width: 150px;
-          height: 30px;
-          border-style: solid;
-          background-color: red;
-      }
-      .right-categories-bottom{
-          width: 960px;
-          height: 1400px;
-          border-style: solid;
-          background-color: #444444;
-          display: grid;
-          grid-template-columns: 220px 220px;
-          row-gap: 10px;
-          column-gap: 10px;
-      }
-      .book{
-          height: 300px;
-          background-color: #666666;
-      }
-
   </style>
 
 </head>
@@ -191,45 +132,6 @@
   </form>
 
 </div>
-
-<!-- body of categories starts -->
-<section class="categories">
-
-  <div class="left-categories">
-    <div class="left-categories-top">
-      <p style="font-size: 30px; color: white;">Categories</p>
-    </div>
-    <div class="left-categories-bottom">
-      <div class="left-categories-bottom-box">Category1</div>
-      <div class="left-categories-bottom-box">Category2</div>
-      <div class="left-categories-bottom-box">Category3</div>
-      <div class="left-categories-bottom-box">Category4</div>
-      <div class="left-categories-bottom-box">Category5</div>
-    </div>
-  </div>
-
-  <div class="right-categories">
-
-    <div class="right-categories-top">
-      <p style="font-size: 30px; color: white;">Filter</p>
-      <div class="right-categories-top-input-filter"></div>
-    </div>
-
-    <div class="right-categories-bottom">
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-    </div>
-
-  </div>
-
-</section>
-<!-- body of categories ends -->
 
 <!-- footer section starts -->
 

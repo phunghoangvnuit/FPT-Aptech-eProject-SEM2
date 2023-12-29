@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .category-product{
+        width: 200px;
+        height: auto;
+        border-style: solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #fff;
+        border-radius: 4px;
+        transition: all 0.25s ease-in-out;
+    }
+    .category-product:hover{
+        border-style: solid;
+        border-width: 1px;
+        border-color: #219150;
+    }
+    .category-product-top img{
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+    .category-product-bottom{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .category-product-bottom p{
+        padding: 0;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .product-title{
+        width: 200px; /* Set your desired width */
+        overflow: hidden;
+    }
+    .product-price{
+        color: darkred;
+        font-weight: 600;
+    }
+    .category-product-bottom i{
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+        color: goldenrod;
+    }
+    .category-product-bottom button{
+        width: auto;
+        height: 40px;
+        font-family: 'Poppins', sans-serif;
+        background-color: #219150;
+        color: #fff;
+        cursor: pointer;
+        border-style: none;
+        border-radius: 4px;
+        transition: all 0.15s ease-in-out;
+    }
+    .category-product-bottom button:active{
+        background-color: #1c7e44;
+    }
+  </style>
+</head>
+<body>
+  <div class="category-product">
+    <div class="category-product-top">
+      <img src="../image/produc-1.jpg">
+    </div>
+
+    <div class="category-product-bottom">
+      <p class="product-title" id="product-title">Think Again: The Power Of Knowing What You Don't Know</p>
+      <div class="rating-container">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star-half-stroke"></i>
+      </div>
+      <p class="product-price">292.500 đ</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+</body>
+
+<script src="https://kit.fontawesome.com/ce8f01b16b.js" crossorigin="anonymous"></script>
+
+<script>
+    /*DOM - shortcut paragraph*/
+    document.addEventListener("DOMContentLoaded", function() {
+        var container = document.getElementById("product-title");
+        var content = container.textContent;
+
+        if (content.length > 50) {
+            container.textContent = content.substring(0, 50) + "...";
+        }
+    });
+</script>
+</html>
