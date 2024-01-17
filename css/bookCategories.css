@@ -15,7 +15,7 @@
     outline: none; border: none;
     text-decoration: none;
     text-transform: capitalize;
-    transition: all .2s linear;
+    transition: all 0.15ms;
 }
 
 .box{
@@ -348,7 +348,7 @@ section{
 
 /************categories-style************/
 /*categories-body-starts*/
-.categories-body{
+.bookCategories-body{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -356,7 +356,7 @@ section{
     gap: 25px;
 }
 /*categories-left-starts*/
-.categories-left{
+.bookCategories-left{
     width: 280px;
     height: max-content;
     border-style: solid;
@@ -367,16 +367,16 @@ section{
     padding: 10px;
     gap: 10px;
 }
-.categories-left-top{
+.bookCategories-left-top{
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
     font-weight: 500;
 }
-.categories-left-top p{
+.bookCategories-left-top p{
     padding: 0;
     margin: 0;
 }
-.categories-left-bottom{
+.bookCategories-left-bottom{
     width: 100%;
     height: auto;
     display: flex;
@@ -385,7 +385,7 @@ section{
     justify-content: center;
     gap: 10px;
 }
-.categories-left-bottom button{
+.bookCategories-left-bottom button{
     width: 280px;
     height: auto;
     font-size: 16px;
@@ -398,27 +398,27 @@ section{
 /*categories-right-starts*/
 
 /*categories-page starts*/
-.categories-right{
+.bookCategories-right{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: normal;
     gap: 20px;
 }
-.categories-right-top{
+.bookCategories-right-top{
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
-.categories-right-top p{
+.bookCategories-right-top p{
     font-size: 30px;
     font-weight: 500;
     padding: 10px;
     margin: 0;
 }
-.categories-right-bottom{
+.bookCategories-right-bottom{
     font-size: 15px;
     display: flex;
     flex-direction: column;
@@ -426,20 +426,20 @@ section{
     justify-content: center;
     gap: 60px;
 }
-.categories-right-bottom .categories-product-container{
+.bookCategories-right-bottom .bookCategories-book-container{
     display: grid;
     grid-template-columns: 222px 222px 222px 222px 222px;
     row-gap: 10px;
     column-gap: 10px;
 }
-.categories-right-bottom .categories-page-controller{
+.bookCategories-right-bottom .bookCategories-page-nav{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 30px;
 }
-.categories-right-bottom .categories-page-controller button{
+.bookCategories-right-bottom .bookCategories-page-nav button{
     width: 40px;
     height: 40px;
     font-size: 14px;
@@ -448,7 +448,7 @@ section{
 /*categories-page ends*/
 
 /*product in categories-page starts*/
-.categories-product{
+.bookCategories-book{
     width: 200px;
     height: auto;
     border-style: solid;
@@ -462,43 +462,43 @@ section{
     border-radius: 4px;
     transition: all 0.25s ease-in-out;
 }
-.categories-product:hover{
+.bookCategories-book:hover{
     border-style: solid;
     border-width: 1px;
     border-color: #219150;
 }
-.categories-product-top img{
+.bookCategories-book-top img{
     width: 200px;
     height: 200px;
     object-fit: contain;
 }
-.categories-product-bottom{
+.bookCategories-book-bottom{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.categories-product-bottom p{
+.bookCategories-book-bottom p{
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     line-height: 22px;
 }
-.product-title{
+.bookCategories-bookTitle{
     width: 200px; /* Set your desired width */
     overflow: hidden;
 }
-.product-price{
+.bookCategories-bookPrice{
     color: darkred;
     font-weight: 600;
 }
-.categories-product-bottom i{
+.bookCategories-book-bottom i{
     padding: 0;
     margin: 0;
     font-size: 13px;
     color: goldenrod;
 }
-.categories-product-bottom button{
+.bookCategories-book-bottom button{
     width: auto;
     height: 40px;
     font-family: 'Poppins', sans-serif;
@@ -509,7 +509,7 @@ section{
     border-radius: 4px;
     transition: all 0.15s ease-in-out;
 }
-.categories-product-bottom button:active{
+.bookCategories-book-bottom button:active{
     background-color: #1c7e44;
 }
 /*product in categories-page ends*/
