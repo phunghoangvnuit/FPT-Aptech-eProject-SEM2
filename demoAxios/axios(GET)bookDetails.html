@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<h1>Book Details</h1>
+
+<div>
+  <label for="bookId">Enter Book ID: </label>
+  <input type="text" id="bookId" />
+  <button onclick="fetchBookDetails()">Get Book Details</button>
+</div>
+
+<div id="book-details-container">
+  <!-- Book details will be displayed here -->
+</div>
+
+<script>
+  function fetchBookDetails() {
+    const bookIdInput = document.getElementById('bookId');
+    const bookId = bookIdInput.value;
+
+    // Ensure the input is not empty
+    if (!bookId) {
+      alert('Please enter a valid Book ID.');
+      return;
+    }
+
+    const endpoint = `http://localhost:8080/api/books/${bookId}`;
+
+    // Send an HTTP GET request to the backend endpoint
+    axios.get(endpoint)
+            .then(response => {
+              // Handle the response data
+              const bookDetails = response.data;
+              displayBookDetails(bookDetails);
+            })
+            .catch(error => {
+              // Handle errors
+              console.error('Error fetching book details:', error);
+              alert('Error fetching book details. Please try again.');
+            });
+  }
+
+  function displayBookDetails(bookDetails) {
+    const bookContainer = document.getElementById('book-details-container');
+
+    // Update your HTML or manipulate the DOM to display book details
+    bookContainer.innerHTML = `<h2>${bookDetails.title}</h2><p>Author: ${bookDetails.author}</p>`;
+    // You can add more details as needed
+  }
+</script>
+
+</body>
+</html>
