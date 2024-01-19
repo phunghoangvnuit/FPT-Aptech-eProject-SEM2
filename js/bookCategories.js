@@ -58,6 +58,10 @@ function fetchBookList() {
 });
 }
 
+function changeCategoryNameDisplay(categorySelection) {
+    document.querySelector('.categoryNameDisplay').innerHTML = `${categorySelection}`;
+}
+
 // Function to display book list on the frontend
 function displayBookList(bookList) {
     const bookListContainer = document.querySelector('.bookCategories-book-container');

@@ -393,6 +393,12 @@ section{
     padding: 10px;
     cursor: pointer;
 }
+
+.bookCategories-left-bottom .activeCategoryButtonElement{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
 /*categories-left-ends*/
 
 /*categories-right-starts*/

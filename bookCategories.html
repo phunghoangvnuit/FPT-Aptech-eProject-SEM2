@@ -98,21 +98,17 @@
       <p>Categories</p>
     </div>
     <div class="bookCategories-left-bottom">
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
-      <button>category</button>
+      <button class="categorySelection" onclick="changeCategoryNameDisplay('All Categories')">All Categories</button>
+      <button class="categorySelection" onclick="changeCategoryNameDisplay('Business & Finance')">Business & Finance</button>
+      <button class="categorySelection" onclick="changeCategoryNameDisplay('Personal Development')">Personal Development</button>
+      <button class="categorySelection" onclick="changeCategoryNameDisplay('Novel & Fiction')">Novel & Fiction</button>
+      <button class="categorySelection" onclick="changeCategoryNameDisplay('Biography')">Biography</button>
+      <button class="categorySelection" onclick="changeCategoryNameDisplay('Education & Reference')">Education & Reference</button>
     </div>
   </div>
   <div class="bookCategories-right">
     <div class="bookCategories-right-top">
-      <p>Category Name</p>
+      <p class="categoryNameDisplay">All Category</p>
       <div class="dropdown">
         <div class="select">
           <span class="selected">Filter: None</span>
