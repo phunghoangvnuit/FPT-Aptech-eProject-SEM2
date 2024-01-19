@@ -486,6 +486,7 @@ section{
 }
 .bookCategories-bookTitle{
     width: 200px; /* Set your desired width */
+    height: 40px;
     overflow: hidden;
 }
 .bookCategories-bookPrice{
@@ -498,7 +499,11 @@ section{
     font-size: 13px;
     color: goldenrod;
 }
-.bookCategories-book-bottom button{
+.bookCategories-book-bottom .buttonToDetails{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: auto;
     height: 40px;
     font-family: 'Poppins', sans-serif;

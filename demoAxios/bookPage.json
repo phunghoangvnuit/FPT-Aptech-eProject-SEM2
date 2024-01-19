@@ -1,0 +1,34 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "title": "Book 1",
+      "author": "Author 1"
+    },
+    {
+      "id": 2,
+      "title": "Book 2",
+      "author": "Author 2"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "offset": 0,
+    "pageSize": 10,
+    "pageNumber": 0,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 5,
+  "totalElements": 50,
+  "last": false,
+  "size": 10,
+  "number": 0,
+  "numberOfElements": 10,
+  "first": true,
+  "empty": false
+}

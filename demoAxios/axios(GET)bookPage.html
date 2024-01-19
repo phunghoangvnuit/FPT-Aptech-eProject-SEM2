@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book List</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<h1>Book List</h1>
+
+<div id="book-list-container">
+  <!-- Danh sách sách sẽ được hiển thị ở đây -->
+</div>
+
+<script>
+  // Function to fetch and display book list
+  function fetchBookList() {
+    const endpoint = 'bookPage.json';
+
+    // Send an HTTP GET request to the backend endpoint
+    axios.get(endpoint)
+            .then(response => {
+              // Handle the response data
+              const bookList = response.data.content;
+              displayBookList(bookList);
+            })
+            .catch(error => {
+              // Handle errors
+              console.error('Error fetching book list:', error);
+              alert('Error fetching book list. Please try again.');
+            });
+  }
+
+  // Function to display book list on the frontend
+  function displayBookList(bookList) {
+    const bookListContainer = document.getElementById('book-list-container');
+
+    // Clear existing content
+    bookListContainer.innerHTML = '';
+
+    // Loop through the book list and display each book
+    bookList.forEach(book => {
+      const bookElement = document.createElement('div');
+      bookElement.innerHTML = `<p>${book.title} by ${book.author}</p>`;
+      bookListContainer.appendChild(bookElement);
+    });
+  }
+
+  // Call fetchBookList when the page is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    fetchBookList();
+  });
+</script>
+
+</body>
+</html>
