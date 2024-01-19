@@ -40,23 +40,26 @@ dropdown.forEach(dropdown => {
     })
 })
 
+const pageSize = 15;
+
 // Function to fetch and display book list
-function fetchBookList() {
-    const endpoint = 'http://localhost:8080/api/books';
+function fetchBooks(pageNumber) {
+    const endpoint = `http://localhost:8080/api/books?page=${pageNumber}&size=${pageSize}`;
 
     // Send an HTTP GET request to the backend endpoint
     axios.get(endpoint)
-    .then(response => {
-    // Handle the response data
-    const bookList = response.data.content;
-    displayBookList(bookList);
-})
-    .catch(error => {
-    // Handle errors
-    console.error('Error fetching book list:', error);
-    alert('Error fetching book list. Please try again.');
-});
+        .then(response => {
+            // Handle the response data
+            const bookPage = response.data;
+            displayBookList(bookPage.content);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error fetching book list:', error);
+            alert('Error fetching book list. Please try again.');
+        });
 }
+
 
 function changeCategoryNameDisplay(categorySelection) {
     document.querySelector('.categoryNameDisplay').innerHTML = `${categorySelection}`;
@@ -96,4 +99,4 @@ function displayBookList(bookList) {
 });
 }
 
-fetchBookList();
+fetchBooks(0);
