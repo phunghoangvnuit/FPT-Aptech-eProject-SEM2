@@ -1,0 +1,17 @@
+<!-- HTML: Trang danh sách sản phẩm -->
+<div class="product" onclick="redirectToProductDetail('productId1')">
+  <p>Product 1</p>
+</div>
+
+<div class="product" onclick="redirectToProductDetail('productId2')">
+  <p>Product 2</p>
+</div>
+
+<!-- ... -->
+
+<script>
+    // JavaScript
+    function redirectToProductDetail(productId) {
+        window.location.href = `http://localhost:63342/bookDetails.html/${productId}`;
+    }
+</script>

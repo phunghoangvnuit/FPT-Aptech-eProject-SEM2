@@ -11,7 +11,7 @@
 });
 });
 
-    /*Dropdown-menu*/
+/*Dropdown-menu*/
     const dropdown = document.querySelectorAll('.dropdown');
     dropdown.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
@@ -41,9 +41,10 @@
 })
 
 /*Axios bookDetails*/
-function fetchBookDetails() {
-    const endpoint = `http://localhost:8080/api/books/2`;
-    // NOTE: const endpoint = `http://localhost:8080/api/books/{book_id}`;
+const urlParams = new URLSearchParams(window.location.search);
+const bookId = urlParams.get('bookId');
+function fetchBookDetails(bookId) {
+    const endpoint = `http://localhost:8080/api/books/${bookId}`;
 
     // Send an HTTP GET request to the backend endpoint
     axios.get(endpoint)
@@ -62,10 +63,24 @@ function fetchBookDetails() {
 function displayBookDetails(bookDetails) {
     const bookContainer = document.querySelector('.bookDetails-body');
 
+    /*Axios - Get categoryName by categoryId
+    const endpointCategory = `http://localhost:8080/api/categories/${bookDetails.categoryId}`;
+    let categoryName = '';
+    axios.get(endpointCategory)
+        .then(response => {
+            // Handle the response data
+            categoryName = response.data.name;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error fetching book details:', error);
+            alert('Error fetching book details. Please try again.');
+        });
+     */
+
     // Update your HTML or manipulate the DOM to display book details
     bookContainer.innerHTML = `
       <div class="bookDetails-left">
-        <!--<div class="bookDetails-imageDEMO" style="width: 300px; height: 300px; border-style: solid; border: none; background-color: red"></div>-->
         <img src="image/produc-1.jpg">
       </div>
       <div class="bookDetails-right">
@@ -92,8 +107,5 @@ function displayBookDetails(bookDetails) {
         </div>
       </div>
     `;
-    // You can add more details as needed
 }
-fetchBookDetails();
-displayBookDetails(1);
-//Note: displayBookDetails({book_id})
+fetchBookDetails(bookId);

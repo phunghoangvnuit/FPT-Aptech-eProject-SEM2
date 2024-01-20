@@ -1,0 +1,19 @@
+<!-- HTML: bookDetails.html -->
+<h1>Book Details</h1>
+<div id="book-details-container">
+  <!-- Thông tin chi tiết của sách sẽ được hiển thị ở đây -->
+</div>
+
+<script>
+    // JavaScript
+    // Lấy tham số từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('productId');
+
+    // Gọi API hoặc thực hiện các bước khác để hiển thị thông tin chi tiết của sản phẩm
+    // ...
+
+    // Ví dụ: Hiển thị thông tin chi tiết của sách
+    const bookDetailsContainer = document.getElementById('book-details-container');
+    bookDetailsContainer.innerHTML = `<p>Book ID: ${productId}</p>`;
+</script>

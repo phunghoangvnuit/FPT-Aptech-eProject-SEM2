@@ -40,9 +40,10 @@ dropdown.forEach(dropdown => {
     })
 })
 
+
+/*Axios bookCategories*/
 const pageSize = 15;
 
-// Function to fetch and display book list
 function fetchBooks(pageNumber) {
     const endpoint = `http://localhost:8080/api/books?page=${pageNumber}&size=${pageSize}`;
 
@@ -91,12 +92,11 @@ function displayBookList(bookList) {
               <i class="fa-regular fa-star-half-stroke"></i>
             </div>
             <p class="bookCategories-bookPrice">${book.price} <span style="text-transform: none;">đ</span></p>
-            <a class="buttonToDetails" href="#">More Details</a>
+            <a class="buttonToDetails" href="bookDetails.html?bookId=${book.id}"">More Details</a>
           </div>
         </div>
     `;
     bookListContainer.appendChild(bookElement);
 });
 }
-
 fetchBooks(0);
