@@ -4,119 +4,67 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
     *{
-      font-family: Arial;
-      font-size: 18px;
       padding: 0;
       margin: 0;
+      font-family: Poppins;
+      font-size: 14px;
     }
-
-    .bookCart-container{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 100px;
-    }
-
-    .bookCart-body{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 15px;
-    }
-
     .bookCart-book{
       display: flex;
-      flex-direction: row;
-      width: 850px;
-      gap: 30px;
+      align-items: center;
+      width: 750px;
+      padding: 5px;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 3px;
+      border-color: #27ae60;
     }
-    .bookCart-bookInfo{
+    .bookCart-bookTitle{
+      margin-left: 8px;
+      margin-right: 8px;
+      width: 400px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      width: 500px;
+      justify-content: flex-start;
+      align-items: center;
     }
-    .bookCart-bookPrice-container{
+    .bookCart-bookPrice{
+      margin-left: 8px;
+      margin-right: 8px;
+      width: 100px;
+      height: 100px;
       display: flex;
-      flex-direction: row;
-      gap: 20px;
+      justify-content: center;
+      align-items: center;
     }
-
     .bookCart-bookQuantity{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .bookCart-bookQuantity input{
-      text-align: center;
-      width: 60px;
-      height: 40px;
-    }
-
-    .bookCart-removeBook{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-left: 50px;
-    }
-    .bookCart-removeBook{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background: none;
-      border: none;
-    }
-    .bookCart-removeBook-button i{
-      width: 50px;
-      height: 50px;
+      margin-left: 8px;
+      margin-right: 8px;
+      width: 30px;
+      height: 20px;
       text-align: center;
     }
-
+    .bookCart-removeBook{
+      margin-right: 20px;
+      margin-left: 20px;
+      font-size: 16px;
+    }
+    .bookCart-removeBook:hover{
+      color: red;
+    }
   </style>
 </head>
 <body>
 <div class="bookCart-container">
   <div class="bookCart-body">
     <div class="bookCart-book">
-      <div style="width: 150px; height:150px; background: red; border-style: solid"></div>
-      <div class="bookCart-bookInfo">
-        <p class="bookCart-bookTitle">Làm Chủ Nghệ Thuật Bán Hàng (Tái Bản 2022)</p>
-        <div class="bookCart-bookPrice-container">
-          <p class="bookCart-bookPrice">68.000 đ</p>
-          <p class="bookCart-bookOldPrice">98.000 đ</p>
-        </div>
-      </div>
-      <div class="bookCart-bookQuantity">
-        <input type="text" placeholder="1">
-      </div>
-      <div class="bookCart-removeBook">
-        <i class="fa-solid fa-trash-can"></i>
-      </div>
-    </div>
-
-    <div class="bookCart-book">
-      <div style="width: 150px; height:150px; background: red; border-style: solid"></div>
-      <div class="bookCart-bookInfo">
-        <p class="bookCart-bookTitle">Làm Chủ Nghệ Thuật Bán Hàng (Tái Bản 2022)</p>
-        <div class="bookCart-bookPrice-container">
-          <p class="bookCart-bookPrice">68.000 đ</p>
-          <p class="bookCart-bookOldPrice">98.000 đ</p>
-        </div>
-      </div>
-      <div class="bookCart-bookQuantity">
-        <input type="text" placeholder="1">
-      </div>
-      <div class="bookCart-removeBook">
-        <i class="fa-solid fa-trash-can"></i>
-      </div>
+      <div style="width:100px; height:100px; background: red; border-style: solid"></div>
+      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know)</p>
+      <p class="bookCart-bookPrice">68.000 đ</p>
+      <input class="bookCart-bookQuantity" type="text" placeholder="1">
+      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
     </div>
   </div>
 

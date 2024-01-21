@@ -385,7 +385,7 @@ section{
     justify-content: center;
     gap: 10px;
 }
-.bookCategories-left-bottom button{
+.bookCategories-left-bottom a{
     width: 280px;
     height: auto;
     font-size: 16px;
@@ -467,13 +467,17 @@ section{
     border-color: #fff;
     border-radius: 4px;
     transition: all 0.25s ease-in-out;
-    cursor: pointer;
 }
 .bookCategories-book:hover{
     border-style: solid;
     border-width: 1px;
     border-color: #219150;
 }
+
+.bookCategories-book-top{
+    cursor: pointer;
+}
+
 .bookCategories-book-top img{
     width: 200px;
     height: 200px;
