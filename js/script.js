@@ -158,3 +158,22 @@ var swiper = new Swiper(".blogs-slider", {
         },
     },
 });
+
+function createCart() {
+    if(!localStorage.getItem(('customerCart'))){
+        axios.post('http://localhost:8080/api/carts')
+            .then(response => {
+                const customerCartId = response.data.id;
+                localStorage.setItem('customerCart', customerCartId);
+            })
+            .catch(error => {
+                console.error('Error creating cart:', error);
+            });
+        console.log(localStorage.getItem('customerCart')); // Cái này dùng để test
+    } else {
+        localStorage.getItem('customerCart');
+        console.log(localStorage.getItem('customerCart')); // Cái này dùng để test
+    }
+}
+
+createCart();

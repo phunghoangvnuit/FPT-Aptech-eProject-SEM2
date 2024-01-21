@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Cart Example</title>
+</head>
+<body>
+
+<button id="createCartButton" onclick="createCart()">Create Cart</button>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function createCart() {
+        if(!localStorage.getItem(('customerCart'))){
+            axios.post('http://localhost:8080/api/carts')
+                .then(response => {
+                    const customerCartId = response.data.id;
+                    localStorage.setItem('customerCart', customerCartId);
+                })
+                .catch(error => {
+                    console.error('Error creating cart:', error);
+                });
+            console.log(localStorage.getItem('customerCart')); // Cái này dùng để test
+        } else {
+            localStorage.getItem('customerCart');
+            console.log(localStorage.getItem('customerCart')); // Cái này dùng để test
+        }
+    }
+
+
+</script>
+</body>
+</html>

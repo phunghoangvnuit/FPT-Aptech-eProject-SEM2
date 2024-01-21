@@ -129,7 +129,7 @@ function displayBookList(bookList) {
     bookElement.innerHTML = `
     <div class="bookCategories-book">
           <div class="bookCategories-book-top" onclick="redirectToAnotherPage(${book.id})">
-            <img src="../image/produc-1.jpg">
+            <img src="../image/${book.id}.jpg">
           </div>
 
           <div class="bookCategories-book-bottom">
@@ -142,7 +142,7 @@ function displayBookList(bookList) {
               <i class="fa-regular fa-star-half-stroke"></i>
             </div>
             <p class="bookCategories-bookPrice">${book.price} <span style="text-transform: none;">đ</span></p>
-            <button class="buttonToDetails" onclick="addToCart(${book.id},1,${book.inStock})">Add to Cart</button>
+            <button class="buttonToDetails" onclick="addToCartInCategory(${book.id},${book.inStock})">Add to Cart</button>
           </div>
         </div>
     `;
@@ -151,16 +151,16 @@ function displayBookList(bookList) {
 }
 
 /* 2>AXIOS - Add Book to Cart */
-const addToCart = async (bookId, bookQuantity, bookInStock) => {
-    if(bookQuantity > bookInStock){
+const addToCartInCategory = async (bookId, bookInStock) => {
+    if(bookInStock === 0){
         alert('Out of Stock');
         return;
     }
 
     try {
-        const response = await axios.put(`http://localhost:8080/api/carts/e1fb7652-9081-4a15-a4bc-991ac220682b`, {
+        const response = await axios.put(`http://localhost:8080/api/carts/${localStorage.getItem('customerCart')}`, {
             bookId: bookId,
-            quantity: bookQuantity
+            quantity: 1
         });
 
         console.log(response.data); // Assuming the server sends a success message
