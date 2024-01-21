@@ -1,4 +1,5 @@
-/*Shortcut Paragraph*/
+/*============ DOM =============*/
+/* 1>Auto Shortcut Paragraph */
     document.addEventListener("DOMContentLoaded", function() {
     var ellipsisContainers = document.querySelectorAll(".product-title");
 
@@ -11,7 +12,7 @@
 });
 });
 
-/*Dropdown-menu*/
+/* 2>DropMenu Interactive */
     const dropdown = document.querySelectorAll('.dropdown');
     dropdown.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
@@ -40,7 +41,14 @@
 })
 })
 
-/*Axios bookDetails*/
+
+
+
+
+
+
+/*============ AXIOS ============*/
+/* 1>AXIOS - Display Book Details */
 const urlParams = new URLSearchParams(window.location.search);
 const bookId = urlParams.get('bookId');
 function fetchBookDetails(bookId) {
@@ -59,11 +67,10 @@ function fetchBookDetails(bookId) {
             alert('Error fetching book details. Please try again.');
         });
 }
-
 function displayBookDetails(bookDetails) {
     const bookContainer = document.querySelector('.bookDetails-body');
 
-    /*Axios - Get categoryName by categoryId
+    /* Get Book categoryName by categoryId
     const endpointCategory = `http://localhost:8080/api/categories/${bookDetails.categoryId}`;
     let categoryName = '';
     axios.get(endpointCategory)
@@ -77,8 +84,6 @@ function displayBookDetails(bookDetails) {
             alert('Error fetching book details. Please try again.');
         });
      */
-
-    // Update your HTML or manipulate the DOM to display book details
     bookContainer.innerHTML = `
       <div class="bookDetails-left">
         <img src="image/produc-1.jpg">
@@ -108,4 +113,5 @@ function displayBookDetails(bookDetails) {
       </div>
     `;
 }
-fetchBookDetails(bookId);
+
+/*==> EXECUTE*/ fetchBookDetails(bookId);

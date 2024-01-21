@@ -1,4 +1,5 @@
-/*Shortcut Paragraph*/
+/*============ DOM =============*/
+/* 1>Auto Shortcut Paragraph */
 document.addEventListener("DOMContentLoaded", function() {
     var ellipsisContainers = document.querySelectorAll(".bookCategories-bookTitle");
 
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-/*Dropdown-menu*/
+/* 2>DropMenu Interactive */
 const dropdown = document.querySelectorAll('.dropdown');
 dropdown.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
@@ -40,34 +41,67 @@ dropdown.forEach(dropdown => {
     })
 })
 
+/* 3> Handle Display CategoryName */
+function changeCategory(categorySelectionId,categorySelectionName) {
+    document.querySelector('.categoryNameDisplay').innerHTML = `${categorySelectionName}`;
 
-/*Axios bookCategories*/
-const pageSize = 15;
+    const allCategoryButton = document.querySelectorAll('.categorySelection');
+    allCategoryButton.forEach((categoryButton)=>{
+        categoryButton.classList.remove('activeCategoryButton')
+    })
 
-function fetchBooks(pageNumber) {
-    const endpoint = `http://localhost:8080/api/books?page=${pageNumber}&size=${pageSize}`;
+    document.querySelector(`.Id_${categorySelectionId}`).classList.add('activeCategoryButton');
 
-    // Send an HTTP GET request to the backend endpoint
-    axios.get(endpoint)
-        .then(response => {
-            // Handle the response data
-            const bookPage = response.data;
-            displayBookList(bookPage.content);
-        })
-        .catch(error => {
-            // Handle errors
-            console.error('Error fetching book list:', error);
-            alert('Error fetching book list. Please try again.');
-        });
+    fetchBooksByCategory(categorySelectionId);
+}
+
+/* 4> Add link to bookDetails */
+function redirectToAnotherPage(bookId) {
+    window.location.href = `bookDetails.html?bookId=${bookId}`;
 }
 
 
-function changeCategoryNameDisplay(categorySelection) {
-    document.querySelector('.categoryNameDisplay').innerHTML = `${categorySelection}`;
-}
 
-// Function to display book list on the frontend
+
+
+
+
+
+/*============ AXIOS ============*/
+/* 1>AXIOS - Display Books by Category */
+const urlParams = new URLSearchParams(window.location.search);
+const categoryId = urlParams.get('category');
+const pageSize = 15; // Books per Page
+function fetchBooksByCategory(categoryId) {
+
+    if(categoryId == 0){
+        const booksByCategoryEndpoint = `http://localhost:8080/api/books?size=${pageSize}`;
+
+        axios.get(booksByCategoryEndpoint)
+            .then(response => {
+                const books = response.data.content;
+                displayBookList(books);
+            })
+            .catch(error => {
+                console.error('Error fetching books by category:', error);
+                alert('Error fetching books by category. Please try again.');
+            });
+    } else {
+        const booksByCategoryEndpoint = `http://localhost:8080/api/books?category=${categoryId}&size=${pageSize}`;
+
+        axios.get(booksByCategoryEndpoint)
+            .then(response => {
+                const books = response.data.content;
+                displayBookList(books);
+            })
+            .catch(error => {
+                console.error('Error fetching books by category:', error);
+                alert('Error fetching books by category. Please try again.');
+            });
+    }
+}
 function displayBookList(bookList) {
+
     const bookListContainer = document.querySelector('.bookCategories-book-container');
 
     // Clear existing content
@@ -77,7 +111,7 @@ function displayBookList(bookList) {
     bookList.forEach(book => {
     const bookElement = document.createElement('div');
     bookElement.innerHTML = `
-    <div class="bookCategories-book">
+    <div class="bookCategories-book" onclick="redirectToAnotherPage(${book.id})">
           <div class="bookCategories-book-top">
             <img src="../image/produc-1.jpg">
           </div>
@@ -92,11 +126,12 @@ function displayBookList(bookList) {
               <i class="fa-regular fa-star-half-stroke"></i>
             </div>
             <p class="bookCategories-bookPrice">${book.price} <span style="text-transform: none;">đ</span></p>
-            <a class="buttonToDetails" href="bookDetails.html?bookId=${book.id}"">More Details</a>
+            <a class="buttonToDetails">Add to Cart</a>
           </div>
         </div>
     `;
     bookListContainer.appendChild(bookElement);
 });
 }
-fetchBooks(0);
+
+/*==> EXECUTE IN FIRST*/ fetchBooksByCategory(categoryId);

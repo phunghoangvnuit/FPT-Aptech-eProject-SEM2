@@ -10,6 +10,22 @@
       padding: 0;
       margin: 0;
     }
+
+    .bookCart-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .bookCart-body{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+    }
+
     .bookCart-book{
       display: flex;
       flex-direction: row;
@@ -67,7 +83,25 @@
   </style>
 </head>
 <body>
+<div class="bookCart-container">
   <div class="bookCart-body">
+    <div class="bookCart-book">
+      <div style="width: 150px; height:150px; background: red; border-style: solid"></div>
+      <div class="bookCart-bookInfo">
+        <p class="bookCart-bookTitle">Làm Chủ Nghệ Thuật Bán Hàng (Tái Bản 2022)</p>
+        <div class="bookCart-bookPrice-container">
+          <p class="bookCart-bookPrice">68.000 đ</p>
+          <p class="bookCart-bookOldPrice">98.000 đ</p>
+        </div>
+      </div>
+      <div class="bookCart-bookQuantity">
+        <input type="text" placeholder="1">
+      </div>
+      <div class="bookCart-removeBook">
+        <i class="fa-solid fa-trash-can"></i>
+      </div>
+    </div>
+
     <div class="bookCart-book">
       <div style="width: 150px; height:150px; background: red; border-style: solid"></div>
       <div class="bookCart-bookInfo">
@@ -86,7 +120,28 @@
     </div>
   </div>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/ce8f01b16b.js" crossorigin="anonymous"></script>
+  <div>
+    <div class="CustomerName">
+      <p>Your Full Name: </p>
+      <input type="text" placeholder="Enter your name">
+    </div>
+    <div class="CustomerEmail">
+      <p>Email: </p>
+      <input type="text" placeholder="Enter email">
+    </div>
+    <div class="CustomerPhoneNumber">
+      <p>Phone Number: </p>
+      <input type="text" placeholder="Enter your phone number">
+    </div>
+    <div class="customerAddress">
+      <p>Address: </p>
+      <input type="text" placeholder="Enter your address">
+    </div>
+    <button>Checkout</button>
+  </div>
+</div>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/ce8f01b16b.js" crossorigin="anonymous"></script>
 </body>
 </html>
