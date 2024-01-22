@@ -27,7 +27,7 @@
 
   <div class="header-1">
 
-    <a href="#" class="logo"><i class="fas fa-book"></i> BookStore </a>
+    <a href="index.html" class="logo"><i class="fas fa-book"></i> BookStore </a>
 
     <form action="" class="search-form">
       <input type="search" name="" placeholder="search here" id="search-box">
@@ -37,7 +37,7 @@
     <div class="icons">
       <div id="search-btn" class="fas fa-search"></div>
       <a href="#" class="fas fa-heart"></a>
-      <a href="#" class="fas fa-shopping-cart"></a>
+      <a href="bookCheckout.html" class="fas fa-shopping-cart"></a>
       <div id="login-btn" class="fas fa-user"></div>
     </div>
 
@@ -92,79 +92,29 @@
 
 <!-- bookCheckout-section -->
 <div class="bookCart-container">
-  <div class="bookCart-body">
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-    <div class="bookCart-book">
-      <img style="width:100px; height:100px;" src="/image/produc-1.jpg">
-      <p class="bookCart-bookTitle">Think Again: The Power Of Knowing What You Don't Know</p>
-      <p class="bookCart-bookPrice">68000</p>
-      <input class="bookCart-bookQuantity" type="text" placeholder="1">
-      <i class="bookCart-removeBook fa-solid fa-trash-can"></i>
-    </div>
-  </div>
+  <div class="bookCart-body"></div>
   <div class="orderContainer">
     <div class="order CustomerName">
       <p>Your Full Name: </p>
-      <input type="text" placeholder="Enter your name">
+      <input class="CustomerName-value" type="text" placeholder="Enter your name">
     </div>
     <div class="order CustomerEmail">
       <p>Email: </p>
-      <input type="order text" placeholder="Enter email">
+      <input class="CustomerEmail-value" type="order text" placeholder="Enter email">
     </div>
     <div class="order CustomerPhoneNumber">
       <p>Phone Number: </p>
-      <input type="text" placeholder="Enter your phone number">
+      <input class="CustomerPhoneNumber-value" type="text" placeholder="Enter your phone number">
     </div>
     <div class="order customerAddress">
       <p>Address: </p>
-      <input type="text" placeholder="Enter your address">
+      <input class="customerAddress-value" type="text" placeholder="Enter your address">
     </div>
     <div class="orderPrice">
       <p style="font-size: 18px; font-weight: 600; color: #000000">Total: </p>
-      <p class="orderPrice-value" style="font-size: 18px; font-weight: 600; color: #8B0000">800.000đ</p>
+      <p class="orderPrice-value" style="font-size: 18px; font-weight: 600; color: #8B0000"></p>
     </div>
-    <button>Checkout</button>
+    <button onclick="createOrder()">Create Order</button>
   </div>
 </div>
 

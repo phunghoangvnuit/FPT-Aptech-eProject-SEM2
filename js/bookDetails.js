@@ -61,7 +61,7 @@ function displayBookDetails(bookDetails) {
             <p>Quantity: </p>
             <input class="bookDetails-AddToCart-quantityInput" type="text" placeholder="1">
           </div>
-          <button class="bookDetails-AddToCart-add" onclick="addToCart()">
+          <button class="bookDetails-AddToCart-add" onclick="checkAndUpdateCart(${bookDetails.bookId},${bookDetails.inStock})">
             <p>Add to Cart</p>
             <p class="fas fa-shopping-cart"></p>
           </button>
@@ -70,6 +70,54 @@ function displayBookDetails(bookDetails) {
     `;
 
     getCategoryNamebyId(bookDetails.categoryId);
+}
+
+/* 2>AXIOS - Add Book to Cart */
+function addItemToCart(bookId, quantityInput){
+    const cartAddRequest = `http://localhost:8080/api/carts/${localStorage.getItem('customerCart')}`
+    axios.put(cartAddRequest, {
+        bookId: bookId,
+        quantity: quantityInput
+    }).then(response=>{
+        console.log(response.data);
+    }).catch(error=>{
+        console.log('Error adding to cart:', error.message);
+    })
+}
+
+function updateItemInCart(bookId, bookQuantity, quantityInput) {
+    const cartAddRequest = `http://localhost:8080/api/carts/items/${localStorage.getItem('customerCart')}`
+    axios.put(cartAddRequest, {
+        bookId: bookId,
+        quantity: bookQuantity + quantityInput
+    }).then(response=>{
+        console.log(response.data);
+    }).catch(error=>{
+        console.log('Error adding to cart:', error.message);
+    })
+}
+
+function checkAndUpdateCart(bookId,bookInStock){
+    const quantityInput = Number(document.querySelector('.bookDetails-AddToCart-quantityInput').value);
+
+    if(quantityInput > bookInStock) {
+        alert('Not enough book instock!');
+        return;
+    }
+
+    const cartItemStatus = `http://localhost:8080/api/carts/items/${localStorage.getItem('customerCart')}?bookId=${bookId}`;
+
+    axios.get(cartItemStatus)
+        .then(response => {
+            const bookQuantity = response.data.quantity;
+            updateItemInCart(bookId, bookQuantity, quantityInput);
+        })
+        .catch(error => {
+            if (error.response.data.errorCode == 404) {
+                console.log('Check Result: Item not in cart!');
+                addItemToCart(bookId,quantityInput);
+            }
+        });
 }
 
 /*==> EXECUTE IN FIRST*/ fetchBookDetails(bookId);

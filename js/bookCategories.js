@@ -1,4 +1,21 @@
 /*============ DOM =============*/
+document.querySelector('#search-btn').onclick = () =>{
+    searchForm.classList.toggle('active');
+}
+
+window.onscroll = () => {
+
+    searchForm.classList.remove('active');
+
+    if(window.scrollY > 80){
+        document.querySelector('.header .header-2').classList.add('active');
+    } else {
+        document.querySelector('.header .header-2').classList.remove('active');
+    }
+
+}
+
+
 /* 1>Auto Shortcut Paragraph */
 document.addEventListener("DOMContentLoaded", function() {
     var ellipsisContainers = document.querySelectorAll(".bookCategories-bookTitle");
@@ -87,7 +104,7 @@ let categoryId = urlParams.get('category');
 const pageSize = 15; // Books per Page
 function fetchBooksByCategory() {
 
-    if(categoryId == 0){
+    if(categoryId == 0 || categoryId == null){
         const booksByCategoryEndpoint = `http://localhost:8080/api/books?size=${pageSize}`;
 
         axios.get(booksByCategoryEndpoint)
@@ -116,6 +133,25 @@ function fetchBooksByCategory() {
         displayCategorySelection (categoryId);
     }
 }
+
+/* 2>AXIOS - Search */
+function listenToSearch(event) {
+    if(event.key === 'Enter'){
+        const searchQuery = document.querySelector('.search-box').value;
+        const queryEndpoint = `http://localhost:8080/api/books?size=15&title=${searchQuery}`;
+
+        axios.get(queryEndpoint)
+            .then(response => {
+                const books = response.data.content;
+                displayBookList(books);
+            })
+            .catch(error => {
+                console.error('Error fetching books by category:', error);
+                alert('Error fetching books by category. Please try again.');
+            });
+    }
+}
+
 function displayBookList(bookList) {
 
     const bookListContainer = document.querySelector('.bookCategories-book-container');
@@ -150,7 +186,7 @@ function displayBookList(bookList) {
 });
 }
 
-/* 2>AXIOS - Add Book to Cart */
+/* 3>AXIOS - Add Book to Cart */
 function addItemToCart(bookId){
     const cartAddRequest = `http://localhost:8080/api/carts/${localStorage.getItem('customerCart')}`
         axios.put(cartAddRequest, {
@@ -177,7 +213,7 @@ function updateItemInCart(bookId, bookQuantity) {
 
 function checkAndUpdateCart(bookId,bookInStock){
     if(bookInStock === 0) {
-        alert('Out of stock');
+        alert('Not enough book instock!');
         return;
     }
     const cartItemStatus = `http://localhost:8080/api/carts/items/${localStorage.getItem('customerCart')}?bookId=${bookId}`;
