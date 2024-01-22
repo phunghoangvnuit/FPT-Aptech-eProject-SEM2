@@ -17,6 +17,8 @@
   <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <body>
 
 <!-- header section starts -->
@@ -230,38 +232,6 @@
   <img src="image/loader-img.gif">
 </div>
 
-<script>
-    /*
-    const productPrice = Number(document.querySelector('.bookCart-bookPrice').innerHTML);
-    let productQuantity = document.querySelector('.bookCart-bookQuantity').value;
-
-    console.log(productPrice * productQuantity);
-    */
-
-    let productQuantity = document.querySelectorAll('.bookCart-bookQuantity');
-    productQuantity.forEach((item) => {
-        if(!item.value){
-            item.value = 1;
-        }
-    })
-
-    let totalCart = 0;
-
-    const bookPriceArray = document.querySelectorAll('.bookCart-bookPrice');
-
-    const bookQuantityArray = document.querySelectorAll('.bookCart-bookQuantity');
-
-    for (i = 0; i < bookQuantityArray.length; i++){
-        totalCart+=bookPriceArray[i].innerHTML * bookQuantityArray[i].value;
-    }
-
-    console.log(totalCart);
-
-    document.querySelector('.orderPrice-value').innerHTML = `${totalCart} đ`;
-
-
-</script>
-
 
 
 
@@ -291,7 +261,7 @@
 
 <!-- custom js file link -->
 <script src="js/script.js"></script>
-<script src="js/bookCategories.js"></script>
+<script src="js/bookCheckout.js"></script>
 
 </body>
 </html>

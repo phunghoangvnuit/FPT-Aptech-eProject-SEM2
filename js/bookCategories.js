@@ -142,7 +142,7 @@ function displayBookList(bookList) {
               <i class="fa-regular fa-star-half-stroke"></i>
             </div>
             <p class="bookCategories-bookPrice">${book.price} <span style="text-transform: none;">đ</span></p>
-            <button class="buttonToDetails" onclick="addToCartInCategory(${book.id},${book.inStock})">Add to Cart</button>
+            <button class="buttonToDetails" onclick="checkAndUpdateCart(${book.id},${book.inStock})">Add to Cart</button>
           </div>
         </div>
     `;
@@ -151,22 +151,48 @@ function displayBookList(bookList) {
 }
 
 /* 2>AXIOS - Add Book to Cart */
-const addToCartInCategory = async (bookId, bookInStock) => {
-    if(bookInStock === 0){
-        alert('Out of Stock');
+function addItemToCart(bookId){
+    const cartAddRequest = `http://localhost:8080/api/carts/${localStorage.getItem('customerCart')}`
+        axios.put(cartAddRequest, {
+        bookId: bookId,
+        quantity: 1
+    }).then(response=>{
+        console.log(response.data);
+    }).catch(error=>{
+        console.log('Error adding to cart:', error.message);
+    })
+}
+
+function updateItemInCart(bookId, bookQuantity) {
+    const cartAddRequest = `http://localhost:8080/api/carts/items/${localStorage.getItem('customerCart')}`
+    axios.put(cartAddRequest, {
+        bookId: bookId,
+        quantity: bookQuantity + 1
+    }).then(response=>{
+        console.log(response.data);
+    }).catch(error=>{
+        console.log('Error adding to cart:', error.message);
+    })
+}
+
+function checkAndUpdateCart(bookId,bookInStock){
+    if(bookInStock === 0) {
+        alert('Out of stock');
         return;
     }
+    const cartItemStatus = `http://localhost:8080/api/carts/items/${localStorage.getItem('customerCart')}?bookId=${bookId}`;
 
-    try {
-        const response = await axios.put(`http://localhost:8080/api/carts/${localStorage.getItem('customerCart')}`, {
-            bookId: bookId,
-            quantity: 1
+    axios.get(cartItemStatus)
+        .then(response => {
+            const bookQuantity = response.data.quantity;
+            updateItemInCart(bookId, bookQuantity);
+        })
+        .catch(error => {
+            if (error.response.data.errorCode == 404) {
+                console.log('Check Result: Item not in cart!');
+                addItemToCart(bookId);
+            }
         });
-
-        console.log(response.data); // Assuming the server sends a success message
-    } catch (error) {
-        console.error('Error adding to cart:', error.message);
-    }
-};
+}
 
 /*==> EXECUTE IN FIRST*/ fetchBooksByCategory();
